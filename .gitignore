@@ -1,3 +1,4 @@
 # librerías de composer 
 vendor/
 bin/
+.idea/
