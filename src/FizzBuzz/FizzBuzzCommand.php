@@ -19,9 +19,16 @@ class FizzBuzzCommand extends Command
             ->addOption(
                 'jugador',
                 null,
-                InputOption::VALUE_OPTIONAL,
+                InputOption::VALUE_REQUIRED,
                 'If set, return player\'s name',
                 'jugador'
+            )
+            ->addOption(
+                'idioma',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'If set, player chooses language',
+                'English'
             )
         ;
     }
@@ -30,9 +37,10 @@ class FizzBuzzCommand extends Command
     {
         $jugada = $input->getArgument('jugada');
         $nombre = $input->getOption('jugador');
+        $idioma = $input->getOption('idioma');
 
         try {
-            $fbg = new FizzBuzzGame(new Translator());
+            $fbg = new FizzBuzzGame(Translator::createForLanguage($idioma));
             $resultados = $fbg->playUpTo($jugada);
 
             foreach ($resultados as $resultado)
@@ -42,7 +50,7 @@ class FizzBuzzCommand extends Command
 
             $output->writeln('Hasta la proxima ' . $nombre);
         } catch (\InvalidArgumentException $e) {
-            $output->writeln('Debe introducir un número');
+            $output->writeln($e->getMessage());
         }
     }
 }

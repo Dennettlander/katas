@@ -9,7 +9,6 @@ class FizzBuzzGame
      */
     private $traductor;
 
-
     public function __construct(TranslatorInterface $traductor)
     {
         $this->traductor = $traductor;
@@ -18,7 +17,7 @@ class FizzBuzzGame
     public function playUpTo($jugada)
     {
         if (!is_numeric($jugada)) {
-            throw new \InvalidArgumentException();
+            throw new \InvalidArgumentException('Debe introducir un número');
         }
 
         $lista = [];
