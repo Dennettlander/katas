@@ -17,9 +17,13 @@ class FizzBuzzGame
 
     public function playUpTo($jugada)
     {
+        if (!is_numeric($jugada)) {
+            throw new \InvalidArgumentException();
+        }
+
         $lista = [];
-        for ($i=1; $i<=$jugada; $i++){
-            $lista[$i-1] = $this->traductor->translate($i);
+        for ($i = 1; $i <= $jugada; $i++) {
+            $lista[$i - 1] = $this->traductor->translate($i);
         }
 
         return $lista;
