@@ -3,9 +3,11 @@
 
 require __DIR__.'/vendor/autoload.php';
 
+use Fibonacci\FiboCommand;
 use FizzBuzz\FizzBuzzCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 $application->add(new FizzBuzzCommand());
+$application->add(new FiboCommand());
 $application->run();
