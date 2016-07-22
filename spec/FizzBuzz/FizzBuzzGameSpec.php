@@ -2,7 +2,6 @@
 
 namespace spec\FizzBuzz;
 
-use FizzBuzz\FizzBuzzGame;
 use FizzBuzz\TranslatorInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -14,8 +13,6 @@ class FizzBuzzGameSpec extends ObjectBehavior
         $traductor->translate(Argument::any())->willReturn("1");
 
         $this->beConstructedWith($traductor);
-
-
     }
 
     function it_is_return_FBGame_list(TranslatorInterface $traductor)

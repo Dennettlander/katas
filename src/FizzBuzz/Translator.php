@@ -4,8 +4,16 @@ namespace FizzBuzz;
 
 class Translator implements TranslatorInterface
 {
+    /**
+     * @var string
+     */
     private $fizz;
+
+    /**
+     * @var string
+     */
     private $buzz;
+
 
     public function __construct($fizz, $buzz)
     {
@@ -42,6 +50,4 @@ class Translator implements TranslatorInterface
         }
     }
 }
-
-
 
