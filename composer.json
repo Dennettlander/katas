@@ -5,5 +5,8 @@
     "config": {
         "bin-dir": "bin"
     },
-    "autoload": {"psr-0": {"": "src"}}
+    "autoload": {"psr-0": {"": "src"}},
+    "require": {
+        "symfony/console": "^3.1"
+    }
 }
